@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
-using WK.Libraries.SharpClipboardNS;
 using System.Diagnostics;
 using System.Linq;
 using System.IO;
 using System.Media;
+using WK.Libraries.SharpClipboardNS;
 
 namespace KlipboardKeeper
 {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Config.Net;
+using Microsoft.Win32;
 
 namespace KlipboardKeeper.Forms
 {
@@ -26,6 +27,8 @@ namespace KlipboardKeeper.Forms
             checkBox_uiOptions_showCopyPreviewBalloon.Checked = settings.ShowCopyPreviewBalloon;
             checkBox_behavior_ignoreClipboardDataPresentAtStartup.Checked = settings.IgnoreClipboardDataPresentAtStartup;
             checkBox_memory_rememberClipboardHistory.Checked = settings.RememberClipboardHistory;
+
+            checkBox_startup_startWithWindows.Checked = Reg.RegistryValueExists("Software\\Microsoft\\Windows\\CurrentVersion\\Run", "KlipboardKeeper", RegistryHive.CurrentUser);
         }
 
         private void numericUpDown_clipboardHistory_maxSize_ValueChanged(object sender, EventArgs e)
@@ -51,6 +54,22 @@ namespace KlipboardKeeper.Forms
         private void checkBox_memory_rememberClipboardHistory_CheckedChanged(object sender, EventArgs e)
         {
             settings.RememberClipboardHistory = checkBox_memory_rememberClipboardHistory.Checked;
+        }
+
+        private void checkBox_startup_startWithWindows_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_startup_startWithWindows.Checked)
+            {
+                string exeFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+                Registry.SetValue("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run", "KlipboardKeeper", exeFilePath, RegistryValueKind.String);
+            }
+            else
+            {
+                if (Reg.RegistryValueExists("Software\\Microsoft\\Windows\\CurrentVersion\\Run", "KlipboardKeeper", RegistryHive.CurrentUser))
+                {
+                    Reg.DeleteValue("Software\\Microsoft\\Windows\\CurrentVersion\\Run", "KlipboardKeeper", RegistryHive.CurrentUser);
+                }
+            }
         }
     }
 }
