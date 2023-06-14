@@ -1,5 +1,8 @@
 ﻿using Config.Net;
+using System.Collections.Generic;
+using System.Net;
 using System.Windows.Forms;
+using static KlipboardKeeper.IconApp;
 
 namespace KlipboardKeeper
 {

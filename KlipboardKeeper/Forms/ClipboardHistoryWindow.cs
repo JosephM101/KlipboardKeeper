@@ -21,5 +21,10 @@ namespace KlipboardKeeper.Forms
         {
 
         }
+
+        private void menuItem_closeWindow_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

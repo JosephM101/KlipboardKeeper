@@ -230,7 +230,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClipboardItem.cs" />
+    <Compile Include="Models\ClipboardItem.cs" />
     <Compile Include="Forms\ClipboardHistoryWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,10 +243,11 @@
     <Compile Include="Forms\SettingsWindow.Designer.cs">
       <DependentUpon>SettingsWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="IconApp.ClipboardHistory.cs" />
     <Compile Include="IconApp.InitContextMenu.cs" />
     <Compile Include="IconApp.CheckAlreadyRunningInstance.cs" />
     <Compile Include="IconApp.cs" />
-    <Compile Include="IconApp.Settings.cs" />
+    <Compile Include="IconApp.SettingManagement.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reg.cs" />

@@ -17,7 +17,7 @@ namespace KlipboardKeeper
             if (Process.GetProcessesByName(Path.GetFileNameWithoutExtension(System.Reflection.Assembly.GetEntryAssembly().Location)).Count() > 1)
             {
                 MessageBox.Show(
-                    string.Format("{0} is already running! \n\nTo access captured items from your clipboard, click on the 'clipboard' icon in the taskbar.", AppName),
+                    $"{AppName} is already running! \n\nTo access captured items from your clipboard, click on the 'clipboard' icon in the taskbar.",
                     AppName,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error

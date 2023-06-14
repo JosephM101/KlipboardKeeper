@@ -27,8 +27,9 @@ namespace KlipboardKeeper
             });
             notifyIconContextMenu.MenuItems.Add("Exit", (o, e) =>
             {
+                string end = settings.RememberClipboardHistory ? "Your current clipboard history will remain intact." : "All clipboard history will be lost!";
                 DialogResult result = MessageBox.Show(
-                    string.Format("Are you sure you want to close {0}? All clipboard history will be lost.", AppName),
+                    $"Are you sure you want to close {AppName}? \n{end}",
                     AppName,
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question

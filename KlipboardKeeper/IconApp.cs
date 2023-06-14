@@ -17,12 +17,11 @@ namespace KlipboardKeeper
         private NotifyIcon notifyIcon;
         private ContextMenu notifyIconContextMenu;
         SharpClipboard clipboardManager;
-        List<ClipboardItem> clipboardHistory = new List<ClipboardItem>();
 
         DateTime appStartTime = DateTime.Now;
 
-        KlipboardKeeper.Forms.ClipboardHistoryWindow clipboardHistoryWindow;
-        KlipboardKeeper.Forms.SettingsWindow settingsWindow = new KlipboardKeeper.Forms.SettingsWindow();
+        Forms.ClipboardHistoryWindow clipboardHistoryWindow = new Forms.ClipboardHistoryWindow();
+        Forms.SettingsWindow settingsWindow = new Forms.SettingsWindow();
 
         public IconApp()
         {
@@ -43,7 +42,6 @@ namespace KlipboardKeeper
             InitContextMenu();
 
             notifyIcon.ContextMenu = notifyIconContextMenu; // Assign context menu to app icon
-            notifyIcon.Click += NotifyIcon_Click; // Register icon click events
 
             if (settings.IsFirstStart)
             {
@@ -54,6 +52,11 @@ namespace KlipboardKeeper
                 notifyIcon.BalloonTipClicked += NotifyIcon_BalloonTipClicked;
                 notifyIcon.ShowBalloonTip(10000);
             }
+
+            if (settings.RememberClipboardHistory)
+            {
+                GetHistoryFromFile(); // Load saved history
+            }
         }
 
         private void NotifyIcon_BalloonTipClicked(object sender, EventArgs e)
@@ -62,15 +65,19 @@ namespace KlipboardKeeper
             notifyIcon.BalloonTipClicked -= NotifyIcon_BalloonTipClicked;
         }
 
-        private void NotifyIcon_Click(object sender, EventArgs e)
-        {
-            ShowClipboardHistoryWindow();
-        }
-
         void ShowClipboardHistoryWindow()
         {
             // Code to show clipboard history window
-            clipboardHistoryWindow = new Forms.ClipboardHistoryWindow();
+            if (clipboardHistoryWindow.Visible)
+            {
+                clipboardHistoryWindow.BringToFront();
+                SystemSounds.Asterisk.Play();
+            }
+            else
+            {
+                /// TODO: Pass history to window
+                DialogResult result = clipboardHistoryWindow.ShowDialog(); // Show the dialog
+            }
         }
 
         void ShowSettingsWindow()
@@ -84,6 +91,16 @@ namespace KlipboardKeeper
             {
                 settingsWindow.settings = this.settings; // Give the Settings window a reference to our config
                 DialogResult result = settingsWindow.ShowDialog(); // Show the dialog
+                if (result == DialogResult.OK)
+                {
+                    Debug.WriteLine("Settings saved");
+
+                    TrimClipboardHistory(); // In case history limit was changed
+                    if (!settings.RememberClipboardHistory)
+                    {
+                        DeleteHistoryFileIfExists();
+                    }
+                }
             }
         }
 
@@ -93,7 +110,7 @@ namespace KlipboardKeeper
         {
             // I put a threshold here since SharpClipboard picks up the clipboard's current content as a change on startup. The solution is to essentially discard any clipboard data obtained within the first few seconds of the app starting.
             // Might consider making this a setting later
-            TimeSpan threshold = TimeSpan.FromSeconds(3);
+            TimeSpan threshold = TimeSpan.FromSeconds(5);
 
             DateTime clipboardChangeDetectedTime = DateTime.Now;
             TimeSpan difference = clipboardChangeDetectedTime - appStartTime;
@@ -106,19 +123,28 @@ namespace KlipboardKeeper
             {
                 if (e.ContentType == SharpClipboard.ContentTypes.Text)
                 {
-                    string sourceApplicationName = e.SourceApplication.Name;
+                    // string sourceApplicationName = e.SourceApplication.Name;
                     string sourceApplicationTitle = e.SourceApplication.Title;
                     string content = clipboardManager.ClipboardText;
-                    clipboardHistory.Add(new ClipboardItem(DateTime.Now, content));
+                    AppendToClipboardHistory(sourceApplicationTitle, content, DateTime.Now);
 
                     if (settings.ShowCopyPreviewBalloon)
                     {
-                        notifyIcon.BalloonTipTitle = string.Format("Text copied from {0}", sourceApplicationTitle);
+                        notifyIcon.BalloonTipTitle = $"Text copied from \"{sourceApplicationTitle}\"";
                         notifyIcon.BalloonTipText = content;
                         notifyIcon.ShowBalloonTip(5000);
                     }
                 }
             }
+        }
+
+        protected override void ExitThreadCore()
+        {
+            if (!settings.RememberClipboardHistory)
+            {
+                DeleteHistoryFileIfExists();
+            }
+            base.ExitThreadCore();
         }
     }
 }
