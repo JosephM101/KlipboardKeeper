@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace KlipboardKeeper
 {
@@ -7,9 +8,15 @@ namespace KlipboardKeeper
         [Serializable]
         public class ClipboardItem
         {
-            public DateTime ItemAdded { get; set; }
-            public string SourceApplication { get; set; }
+            [DisplayName("Contents")]
             public string Text { get; set; }
+
+            [DisplayName("Source Application")]
+            public string SourceApplication { get; internal set; }
+
+            [DisplayName("Item Added")]
+            public DateTime ItemAdded { get; internal set; }
+
         }
     }
 }

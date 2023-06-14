@@ -7,6 +7,7 @@ using System.Linq;
 using System.IO;
 using System.Media;
 using WK.Libraries.SharpClipboardNS;
+using static KlipboardKeeper.IconApp;
 
 namespace KlipboardKeeper
 {
@@ -33,8 +34,11 @@ namespace KlipboardKeeper
             clipboardManager = new SharpClipboard();
             clipboardManager.ClipboardChanged += Clipboard_ClipboardChanged;
 
+            source = new BindingSource(ClipboardHistory, null);
+
             // Initialize taskbar icon
             this.notifyIcon = new NotifyIcon();
+            notifyIcon.MouseUp += NotifyIcon_MouseUp;
             notifyIcon.Text = AppName;
             notifyIcon.Icon = Properties.Resources.clipboard;
             notifyIcon.Visible = true;
@@ -57,6 +61,27 @@ namespace KlipboardKeeper
             {
                 GetHistoryFromFile(); // Load saved history
             }
+
+            clipboardHistoryWindow.VisibleChanged += ClipboardHistoryWindow_VisibleChanged;
+            settingsWindow.VisibleChanged += SettingsWindow_VisibleChanged;
+        }
+
+        private void ClipboardHistoryWindow_VisibleChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SettingsWindow_VisibleChanged(object sender, EventArgs e)
+        {
+            showClipboardHistoryMenuItem.Enabled = !settingsWindow.Visible;
+        }
+
+        private void NotifyIcon_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ShowClipboardHistoryWindow();
+            }
         }
 
         private void NotifyIcon_BalloonTipClicked(object sender, EventArgs e)
@@ -65,42 +90,64 @@ namespace KlipboardKeeper
             notifyIcon.BalloonTipClicked -= NotifyIcon_BalloonTipClicked;
         }
 
+        void BringClipboardHistoryWindowToFront()
+        {
+            // clipboardHistoryWindow.WindowState = FormWindowState.Minimized;
+
+            // clipboardHistoryWindow.Activate();
+            clipboardHistoryWindow.Show();
+            clipboardHistoryWindow.WindowState = FormWindowState.Normal;
+            clipboardHistoryWindow.FlashNotification();
+        }
+
         void ShowClipboardHistoryWindow()
         {
-            // Code to show clipboard history window
-            if (clipboardHistoryWindow.Visible)
+            if (showClipboardHistoryMenuItem.Enabled)
             {
-                clipboardHistoryWindow.BringToFront();
-                SystemSounds.Asterisk.Play();
-            }
-            else
-            {
-                /// TODO: Pass history to window
-                DialogResult result = clipboardHistoryWindow.ShowDialog(); // Show the dialog
+                // Code to show clipboard history window
+                if (clipboardHistoryWindow.Visible)
+                {
+                    BringClipboardHistoryWindowToFront();
+                    SystemSounds.Asterisk.Play();
+                }
+                else
+                {
+                    /// TODO: Pass history to window
+                    clipboardHistoryWindow.TopMost = settings.KeepHistoryWindowOnTop;
+                    clipboardHistoryWindow.clipboardItems = this.ClipboardHistory;
+                    clipboardHistoryWindow.ShowDialog(); // Show the dialog
+                }
             }
         }
 
         void ShowSettingsWindow()
         {
-            if (settingsWindow.Visible)
+            if (settingsMenuItem.Enabled)
             {
-                settingsWindow.BringToFront();
-                SystemSounds.Asterisk.Play();
+                if (settingsWindow.Visible)
+                {
+                    settingsWindow.BringToFront();
+                    SystemSounds.Asterisk.Play();
+                }
+                else
+                {
+                    settingsWindow.settings = this.settings; // Give the Settings window a reference to our config
+                    DialogResult result = settingsWindow.ShowDialog(); // Show the dialog
+                    if (result == DialogResult.OK)
+                    {
+                        Debug.WriteLine("Settings saved");
+
+                        TrimClipboardHistory(); // In case history limit was changed
+                        if (!settings.RememberClipboardHistory)
+                        {
+                            DeleteHistoryFileIfExists();
+                        }
+                    }
+                }
             }
             else
             {
-                settingsWindow.settings = this.settings; // Give the Settings window a reference to our config
-                DialogResult result = settingsWindow.ShowDialog(); // Show the dialog
-                if (result == DialogResult.OK)
-                {
-                    Debug.WriteLine("Settings saved");
-
-                    TrimClipboardHistory(); // In case history limit was changed
-                    if (!settings.RememberClipboardHistory)
-                    {
-                        DeleteHistoryFileIfExists();
-                    }
-                }
+                clipboardHistoryWindow.BringToFront();
             }
         }
 

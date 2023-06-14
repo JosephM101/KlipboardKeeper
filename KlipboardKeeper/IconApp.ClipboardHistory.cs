@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -11,16 +12,16 @@ namespace KlipboardKeeper
 {
     public partial class IconApp : ApplicationContext
     {
-        private string PersistentHistoryFileName = "KlipboardKeeper.history";
-        public List<ClipboardItem> ClipboardHistory = new List<ClipboardItem>();
-
+        private readonly string PersistentHistoryFileName = "KlipboardKeeper.history";
+        public BindingList<ClipboardItem> ClipboardHistory = new BindingList<ClipboardItem>();
+        public BindingSource source;
 
         // Code to handle clipboard history
         void AppendToClipboardHistory(string sourceAppName, string clipboardText, DateTime captureTime)
         {
             ClipboardHistory.Add(new ClipboardItem()
             {
-                ItemAdded = DateTime.Now,
+                ItemAdded = captureTime,
                 SourceApplication = sourceAppName,
                 Text = clipboardText
             });

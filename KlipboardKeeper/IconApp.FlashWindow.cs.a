@@ -1,0 +1,50 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace KlipboardKeeper
+{
+    public partial class IconApp : ApplicationContext
+    {
+        [DllImport("user32.dll")]
+        public static extern int FlashWindowEx(ref FLASHWINFO pwfi);
+
+        [DllImport("user32.dll")]
+        public static extern bool SetForegroundWindow(IntPtr hWnd);
+
+        // Define the FLASHWINFO structure
+        [StructLayout(LayoutKind.Sequential)]
+        public struct FLASHWINFO
+        {
+            public uint cbSize;
+            public IntPtr hwnd;
+            public uint dwFlags;
+            public uint uCount;
+            public uint dwTimeout;
+        }
+
+        // Constants for the FlashWindowEx function
+        public const uint FLASHW_ALL = 3;
+        public const uint FLASHW_TIMERNOFG = 12;
+
+        public void FlashWindow(IntPtr WindowHandle)
+        {
+            // Create a FLASHWINFO structure and set its properties
+            FLASHWINFO flashInfo = new FLASHWINFO();
+            flashInfo.cbSize = Convert.ToUInt32(Marshal.SizeOf(flashInfo));
+            flashInfo.hwnd = WindowHandle; // Pass the handle of the form
+            flashInfo.dwFlags = FLASHW_ALL | FLASHW_TIMERNOFG;
+            flashInfo.uCount = 3;
+            flashInfo.dwTimeout = 100;
+
+            // Call the FlashWindowEx function to pulse the window
+            FlashWindowEx(ref flashInfo);
+        }
+    }
+}

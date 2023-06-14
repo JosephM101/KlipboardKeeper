@@ -11,21 +11,25 @@ namespace KlipboardKeeper
 {
     public partial class IconApp : ApplicationContext
     {
+        MenuItem showClipboardHistoryMenuItem;
+        MenuItem settingsMenuItem;
+        MenuItem exitMenuItem;
+
         public void InitContextMenu()
         {
             // Initialize context menu for taskbar icon & add items
             this.notifyIconContextMenu = new ContextMenu();
-            notifyIconContextMenu.MenuItems.Add("Show clipboard history", (o, e) =>
+
+            showClipboardHistoryMenuItem = new MenuItem("Show clipboard history", (o, e) =>
             {
                 // Show clipboard history window
                 ShowClipboardHistoryWindow();
             });
-
-            notifyIconContextMenu.MenuItems.Add("Settings", (o, e) =>
+            settingsMenuItem = new MenuItem("Settings", (o, e) =>
             {
                 ShowSettingsWindow();
             });
-            notifyIconContextMenu.MenuItems.Add("Exit", (o, e) =>
+            exitMenuItem = new MenuItem("Exit", (o, e) =>
             {
                 string end = settings.RememberClipboardHistory ? "Your current clipboard history will remain intact." : "All clipboard history will be lost!";
                 DialogResult result = MessageBox.Show(
@@ -40,6 +44,10 @@ namespace KlipboardKeeper
                     Application.Exit();
                 }
             });
+
+            notifyIconContextMenu.MenuItems.Add(showClipboardHistoryMenuItem);
+            notifyIconContextMenu.MenuItems.Add(settingsMenuItem);
+            notifyIconContextMenu.MenuItems.Add(exitMenuItem);
         }
     }
 }

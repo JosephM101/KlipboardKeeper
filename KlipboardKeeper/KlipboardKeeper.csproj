@@ -230,6 +230,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FlashWindow.cs" />
+    <None Include="IconApp.FlashWindow.cs.a" />
     <Compile Include="Models\ClipboardItem.cs" />
     <Compile Include="Forms\ClipboardHistoryWindow.cs">
       <SubType>Form</SubType>
