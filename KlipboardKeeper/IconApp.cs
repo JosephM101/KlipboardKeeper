@@ -110,14 +110,7 @@ namespace KlipboardKeeper
                 }
                 else
                 {
-                    /// TODO: Pass history to window
                     clipboardHistoryWindow.TopMost = settings.KeepHistoryWindowOnTop;
-                    // clipboardHistoryWindow.clipboardItems = new System.ComponentModel.BindingList<ClipboardItem>();
-                    // foreach(ClipboardItem item in this.ClipboardHistory)
-                    // {
-                    //     clipboardHistoryWindow.clipboardItems.Add(item);
-                    // }
-                    // clipboardHistoryWindow.clipboardItems = this.ClipboardHistory;
                     clipboardHistoryWindow.ShowDialog(); // Show the dialog
                 }
             }
