@@ -1,13 +1,16 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 using static KlipboardKeeper.IconApp;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace KlipboardKeeper.Forms
 {
     public partial class EditItemWindow : Form
     {
         public bool saved = false;
+        bool skipExitMessage = false;
         public ClipboardItem clipboardItem;
 
         public EditItemWindow(ClipboardItem clipboardItem)
@@ -23,20 +26,27 @@ namespace KlipboardKeeper.Forms
 
         private void EditItemWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!saved)
+            if (!skipExitMessage)
             {
-                DialogResult result = MessageBox.Show("Close the editor? Unsaved changes will be discarded.",
-                                                      "Close editor?",
-                                                      MessageBoxButtons.YesNo,
-                                                      MessageBoxIcon.Question);
-                if (result == DialogResult.No)
+                if (!saved)
                 {
-                    e.Cancel = true;
+                    DialogResult result = MessageBox.Show("Close the editor? Unsaved changes will be discarded.",
+                                                          "Close editor?",
+                                                          MessageBoxButtons.YesNo,
+                                                          MessageBoxIcon.Question);
+                    if (result == DialogResult.No)
+                    {
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        e.Cancel = false;
+                        this.DialogResult = DialogResult.Cancel;
+                    }
                 }
                 else
                 {
-                    e.Cancel = false;
-                    this.DialogResult = DialogResult.Cancel;
+                    this.DialogResult = DialogResult.OK;
                 }
             }
             else
@@ -112,6 +122,18 @@ namespace KlipboardKeeper.Forms
             Clipboard.SetText(textBox.Text);
             // MessageBox.Show("Copied.");
             this.DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void toolStripButton_OpenInExternalEditor_Click(object sender, EventArgs e)
+        {
+            string tempFilePath = Path.GetTempFileName();
+            string tempTxtFilePath = Path.ChangeExtension(tempFilePath, ".txt");
+            File.Move(tempFilePath, tempTxtFilePath);
+            File.WriteAllText(tempTxtFilePath, clipboardItem.Text);
+            Process.Start(tempTxtFilePath);
+
+            skipExitMessage = true;
             Close();
         }
     }

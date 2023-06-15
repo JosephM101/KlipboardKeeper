@@ -36,7 +36,7 @@
             this.justCopyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.saveToFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton_openInExternalEditor = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton_cancel = new System.Windows.Forms.ToolStripButton();
             this.textBox = new System.Windows.Forms.TextBox();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
@@ -48,7 +48,7 @@
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSplitButton_done,
-            this.toolStripButton1,
+            this.toolStripButton_openInExternalEditor,
             this.toolStripButton_cancel});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -109,13 +109,14 @@
             this.saveToFileToolStripMenuItem.Text = "Save to file";
             this.saveToFileToolStripMenuItem.Click += new System.EventHandler(this.saveToFileToolStripMenuItem_Click);
             // 
-            // toolStripButton1
+            // toolStripButton_openInExternalEditor
             // 
-            this.toolStripButton1.Image = global::KlipboardKeeper.Properties.Resources.Open_16x;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(118, 22);
-            this.toolStripButton1.Text = "Open in Notepad";
+            this.toolStripButton_openInExternalEditor.Image = global::KlipboardKeeper.Properties.Resources.Open_16x;
+            this.toolStripButton_openInExternalEditor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_openInExternalEditor.Name = "toolStripButton_openInExternalEditor";
+            this.toolStripButton_openInExternalEditor.Size = new System.Drawing.Size(168, 22);
+            this.toolStripButton_openInExternalEditor.Text = "Open in System Text Editor";
+            this.toolStripButton_openInExternalEditor.Click += new System.EventHandler(this.toolStripButton_OpenInExternalEditor_Click);
             // 
             // toolStripButton_cancel
             // 
@@ -167,7 +168,7 @@
 
         #endregion
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton_openInExternalEditor;
         private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton_done;
         private System.Windows.Forms.ToolStripMenuItem saveChangesAndCopyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem justSaveChangesToolStripMenuItem;
