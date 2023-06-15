@@ -66,7 +66,10 @@ namespace KlipboardKeeper.Forms
         {
             get
             {
-                return Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                int Major = Assembly.GetExecutingAssembly().GetName().Version.Major;
+                int Minor = Assembly.GetExecutingAssembly().GetName().Version.Minor;
+                int Build = Assembly.GetExecutingAssembly().GetName().Version.Build;
+                return $"{Major}.{Minor}.{Build}";
             }
         }
 
