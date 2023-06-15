@@ -12,11 +12,18 @@ namespace KlipboardKeeper
             public string Text { get; set; }
 
             [DisplayName("Source Application")]
-            public string SourceApplication { get; internal set; }
+            public string SourceApplication { get; set; }
 
-            [DisplayName("Item Added")]
-            public DateTime ItemAdded { get; internal set; }
+            [DisplayName("Capture time")]
+            public DateTime CaptureTime { get; set; }
 
+            [Browsable(false)]
+            public System.Guid Guid { get; set; }
+
+            public ClipboardItem()
+            {
+                Guid = Guid.NewGuid();
+            }
         }
     }
 }
