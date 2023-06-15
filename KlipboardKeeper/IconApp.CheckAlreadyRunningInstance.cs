@@ -15,7 +15,7 @@ namespace KlipboardKeeper
                 MessageBox.Show(
                     $"{AppName} is already running! \n" +
                     $"\n" +
-                    $"To access your clipboard history, click on the 'clipboard' icon in the taskbar. If you don't see it, it may be hiding in your taskbar's overflow menu.",
+                    $"To access your clipboard history, click on the 'clipboard' icon in the taskbar. If you don't see the icon, it may be hiding in your taskbar's overflow menu.",
                     AppName,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
