@@ -13,6 +13,7 @@ namespace KlipboardKeeper
     {
         MenuItem showClipboardHistoryMenuItem;
         MenuItem settingsMenuItem;
+        MenuItem clearClipboardMenuItem;
         MenuItem exitMenuItem;
 
         public void InitContextMenu()
@@ -28,6 +29,16 @@ namespace KlipboardKeeper
             settingsMenuItem = new MenuItem("Settings", (o, e) =>
             {
                 ShowSettingsWindow();
+            });
+            clearClipboardMenuItem = new MenuItem("Clear clipboard", (o, e) =>
+            {
+                if (MessageBox.Show("Clear the clipboard?",
+                                    "KlipboardKeeper",
+                                    MessageBoxButtons.YesNo,
+                                    MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Clipboard.Clear();
+                }
             });
             exitMenuItem = new MenuItem("Exit", (o, e) =>
             {
@@ -47,6 +58,7 @@ namespace KlipboardKeeper
 
             notifyIconContextMenu.MenuItems.Add(showClipboardHistoryMenuItem);
             notifyIconContextMenu.MenuItems.Add(settingsMenuItem);
+            notifyIconContextMenu.MenuItems.Add(clearClipboardMenuItem);
             notifyIconContextMenu.MenuItems.Add(exitMenuItem);
         }
     }

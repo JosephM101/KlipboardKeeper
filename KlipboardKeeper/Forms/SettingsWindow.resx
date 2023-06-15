@@ -117,11 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </data>
+  </metadata>
   <data name="checkBox_behavior_ignoreClipboardDataPresentAtStartup.ToolTip" xml:space="preserve">
+    <value>Within the first couple of seconds after starting, KlipboardKeeper can detect content present in the clipboard. When this setting is enabled, KlipboardKeeper will save the detected content in its history.</value>
+  </data>
+  <data name="checkBox_behavior_tryToPreventDuplicates.ToolTip" xml:space="preserve">
     <value>Within the first couple of seconds after starting, KlipboardKeeper can detect content present in the clipboard. When this setting is enabled, KlipboardKeeper will save the detected content in its history.</value>
   </data>
   <data name="checkBox_memory_rememberClipboardHistory.ToolTip" xml:space="preserve">
@@ -129,6 +131,7 @@
 Note that this will result in gaps during periods when KlipboardKeeper isn't running.
 Additionally, this is a potential security risk, and is NOT recommended on shared PCs.</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAoAAAAAAAEAIADxJgAApgAAAAAAAAABACAAbhAAAJcnAACAgAAAAQAgACgIAQAFOAAAYGAAAAEA

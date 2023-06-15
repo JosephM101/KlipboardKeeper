@@ -231,6 +231,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FlashWindow.cs" />
+    <Compile Include="Forms\EditItemWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditItemWindow.Designer.cs">
+      <DependentUpon>EditItemWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Images\Icons_Thick.Designer.cs">
+      <DependentUpon>Icons_Thick.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Images\Icons_Thin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Icons_Thin.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SynchronizedBindingList.cs" />
     <None Include="IconApp.FlashWindow.cs.a" />
     <Compile Include="Models\ClipboardItem.cs" />
     <Compile Include="Forms\ClipboardHistoryWindow.cs">
@@ -256,19 +278,25 @@
     <EmbeddedResource Include="Forms\ClipboardHistoryWindow.resx">
       <DependentUpon>ClipboardHistoryWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditItemWindow.resx">
+      <DependentUpon>EditItemWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SettingsWindow.resx">
       <DependentUpon>SettingsWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Images\Icons_Thick.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Icons_Thick.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\Icons_Thin.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Icons_Thin.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -276,6 +304,85 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.ico" />
+    <Content Include="Images\Icons_Thick\clipboard.svg" />
+    <Content Include="Images\Icons_Thick\clipboard_16.png" />
+    <Content Include="Images\Icons_Thick\clipboard_32.png" />
+    <Content Include="Images\Icons_Thick\clipboard_64.png" />
+    <Content Include="Images\Icons_Thick\copy.svg" />
+    <Content Include="Images\Icons_Thick\copy_16.png" />
+    <Content Include="Images\Icons_Thick\copy_32.png" />
+    <Content Include="Images\Icons_Thick\copy_64.png" />
+    <Content Include="Images\Icons_Thick\edit-2.svg" />
+    <Content Include="Images\Icons_Thick\edit-2_16.png" />
+    <Content Include="Images\Icons_Thick\edit-2_32.png" />
+    <Content Include="Images\Icons_Thick\edit-2_64.png" />
+    <Content Include="Images\Icons_Thick\edit-3.svg" />
+    <Content Include="Images\Icons_Thick\edit-3_16.png" />
+    <Content Include="Images\Icons_Thick\edit-3_32.png" />
+    <Content Include="Images\Icons_Thick\edit-3_64.png" />
+    <Content Include="Images\Icons_Thick\edit.svg" />
+    <Content Include="Images\Icons_Thick\edit_16.png" />
+    <Content Include="Images\Icons_Thick\edit_32.png" />
+    <Content Include="Images\Icons_Thick\edit_64.png" />
+    <Content Include="Images\Icons_Thick\settings.svg" />
+    <Content Include="Images\Icons_Thick\settings_16.png" />
+    <Content Include="Images\Icons_Thick\settings_32.png" />
+    <Content Include="Images\Icons_Thick\settings_64.png" />
+    <Content Include="Images\Icons_Thick\trash-2.svg" />
+    <Content Include="Images\Icons_Thick\trash-2_16.png" />
+    <Content Include="Images\Icons_Thick\trash-2_32.png" />
+    <Content Include="Images\Icons_Thick\trash-2_64.png" />
+    <Content Include="Images\Icons_Thick\trash.svg" />
+    <Content Include="Images\Icons_Thick\trash_16.png" />
+    <Content Include="Images\Icons_Thick\trash_32.png" />
+    <Content Include="Images\Icons_Thick\trash_64.png" />
+    <None Include="Resources\edit.ico" />
+    <None Include="Resources\x_64.png" />
+    <None Include="Resources\x_32.png" />
+    <None Include="Resources\x_16.png" />
+    <None Include="Resources\save_64.png" />
+    <None Include="Resources\save_32.png" />
+    <None Include="Resources\save_16.png" />
+    <None Include="Resources\check-square_64.png" />
+    <None Include="Resources\check-square_32.png" />
+    <None Include="Resources\check-square_16.png" />
+    <None Include="Resources\check-circle_64.png" />
+    <None Include="Resources\check-circle_32.png" />
+    <None Include="Resources\check-circle_16.png" />
+    <None Include="Resources\check_64.png" />
+    <None Include="Resources\check_32.png" />
+    <None Include="Resources\check_16.png" />
+    <None Include="Resources\Open_16x.png" />
+    <None Include="Images\Icons_Thin\clipboard.svg" />
+    <None Include="Images\Icons_Thin\trash-2.svg" />
+    <None Include="Images\Icons_Thin\trash.svg" />
+    <None Include="Images\Icons_Thin\edit.svg" />
+    <None Include="Images\Icons_Thin\settings.svg" />
+    <None Include="Images\Icons_Thin\edit-2.svg" />
+    <None Include="Images\Icons_Thin\edit-3.svg" />
+    <None Include="Images\Icons_Thin\copy.svg" />
+    <None Include="Images\Icons_Thin\trash-2_64.png" />
+    <None Include="Images\Icons_Thin\trash-2_32.png" />
+    <None Include="Images\Icons_Thin\trash_64.png" />
+    <None Include="Images\Icons_Thin\trash_32.png" />
+    <None Include="Images\Icons_Thin\settings_256.png" />
+    <None Include="Images\Icons_Thin\settings_128.png" />
+    <None Include="Images\Icons_Thin\settings_64.png" />
+    <None Include="Images\Icons_Thin\settings_32.png" />
+    <None Include="Images\Icons_Thin\settings_16.png" />
+    <None Include="Images\Icons_Thin\edit-3_64.png" />
+    <None Include="Images\Icons_Thin\edit-3_32.png" />
+    <None Include="Images\Icons_Thin\edit-2_64.png" />
+    <None Include="Images\Icons_Thin\edit-2_32.png" />
+    <None Include="Images\Icons_Thin\edit_64.png" />
+    <None Include="Images\Icons_Thin\edit_32.png" />
+    <None Include="Images\Icons_Thin\copy_64.png" />
+    <None Include="Images\Icons_Thin\copy_32.png" />
+    <None Include="Images\Icons_Thin\clipboard_64.png" />
+    <None Include="Images\Icons_Thin\clipboard_32.png" />
+    <None Include="Resources\Copy_32x.png" />
+    <None Include="Resources\DeleteListItem_32x.png" />
+    <None Include="Resources\Edit_grey_32x.png" />
     <None Include="Resources\clipboard.ico" />
   </ItemGroup>
   <ItemGroup>

@@ -41,15 +41,16 @@
             this.checkBox_uiOptions_keepHistoryWindowOnTop = new System.Windows.Forms.CheckBox();
             this.checkBox_uiOptions_showCopyPreviewBalloon = new System.Windows.Forms.CheckBox();
             this.checkBox_behavior_ignoreClipboardDataPresentAtStartup = new System.Windows.Forms.CheckBox();
+            this.checkBox_behavior_tryToPreventDuplicates = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.checkBox_memory_rememberClipboardHistory = new System.Windows.Forms.CheckBox();
-            this.okButton = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.checkBox_startup_startWithWindows = new System.Windows.Forms.CheckBox();
+            this.okButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -77,11 +78,11 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 105F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 125F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(345, 291);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(345, 320);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // groupBox1
@@ -162,7 +163,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 71);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(339, 99);
+            this.groupBox2.Size = new System.Drawing.Size(339, 119);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "UI && Behavior";
@@ -172,11 +173,12 @@
             this.flowLayoutPanel2.Controls.Add(this.checkBox_uiOptions_keepHistoryWindowOnTop);
             this.flowLayoutPanel2.Controls.Add(this.checkBox_uiOptions_showCopyPreviewBalloon);
             this.flowLayoutPanel2.Controls.Add(this.checkBox_behavior_ignoreClipboardDataPresentAtStartup);
+            this.flowLayoutPanel2.Controls.Add(this.checkBox_behavior_tryToPreventDuplicates);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(333, 80);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(333, 100);
             this.flowLayoutPanel2.TabIndex = 3;
             // 
             // checkBox_uiOptions_keepHistoryWindowOnTop
@@ -215,11 +217,25 @@
             this.checkBox_behavior_ignoreClipboardDataPresentAtStartup.UseVisualStyleBackColor = true;
             this.checkBox_behavior_ignoreClipboardDataPresentAtStartup.CheckedChanged += new System.EventHandler(this.checkBox_behavior_ignoreClipboardDataPresentAtStartup_CheckedChanged);
             // 
+            // checkBox_behavior_tryToPreventDuplicates
+            // 
+            this.checkBox_behavior_tryToPreventDuplicates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBox_behavior_tryToPreventDuplicates.AutoSize = true;
+            this.checkBox_behavior_tryToPreventDuplicates.Location = new System.Drawing.Point(3, 72);
+            this.checkBox_behavior_tryToPreventDuplicates.Name = "checkBox_behavior_tryToPreventDuplicates";
+            this.checkBox_behavior_tryToPreventDuplicates.Size = new System.Drawing.Size(302, 17);
+            this.checkBox_behavior_tryToPreventDuplicates.TabIndex = 3;
+            this.checkBox_behavior_tryToPreventDuplicates.Text = "Try to prevent duplicates";
+            this.toolTip.SetToolTip(this.checkBox_behavior_tryToPreventDuplicates, resources.GetString("checkBox_behavior_tryToPreventDuplicates.ToolTip"));
+            this.checkBox_behavior_tryToPreventDuplicates.UseVisualStyleBackColor = true;
+            this.checkBox_behavior_tryToPreventDuplicates.CheckedChanged += new System.EventHandler(this.checkBox_behavior_tryToPreventDuplicates_CheckedChanged);
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.flowLayoutPanel3);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 176);
+            this.groupBox3.Location = new System.Drawing.Point(3, 196);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(339, 49);
             this.groupBox3.TabIndex = 7;
@@ -250,34 +266,11 @@
             this.checkBox_memory_rememberClipboardHistory.UseVisualStyleBackColor = true;
             this.checkBox_memory_rememberClipboardHistory.CheckedChanged += new System.EventHandler(this.checkBox_memory_rememberClipboardHistory_CheckedChanged);
             // 
-            // okButton
-            // 
-            this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okButton.Location = new System.Drawing.Point(282, 356);
-            this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(75, 23);
-            this.okButton.TabIndex = 1;
-            this.okButton.Text = "Close";
-            this.okButton.UseVisualStyleBackColor = true;
-            this.okButton.Click += new System.EventHandler(this.OkButton_Click);
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 320);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(342, 33);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "NOTE: Some settings may not take effect until you restart KlipboardKeeper.";
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.flowLayoutPanel4);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(3, 231);
+            this.groupBox4.Location = new System.Drawing.Point(3, 251);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(339, 49);
             this.groupBox4.TabIndex = 8;
@@ -304,12 +297,36 @@
             this.checkBox_startup_startWithWindows.UseVisualStyleBackColor = true;
             this.checkBox_startup_startWithWindows.CheckedChanged += new System.EventHandler(this.checkBox_startup_startWithWindows_CheckedChanged);
             // 
+            // okButton
+            // 
+            this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.okButton.Location = new System.Drawing.Point(282, 385);
+            this.okButton.Name = "okButton";
+            this.okButton.Size = new System.Drawing.Size(75, 23);
+            this.okButton.TabIndex = 1;
+            this.okButton.Text = "Close";
+            this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.OkButton_Click);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 349);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(342, 33);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "NOTE: Some settings may not take effect until you restart KlipboardKeeper.";
+            // 
             // SettingsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(369, 391);
+            this.CancelButton = this.okButton;
+            this.ClientSize = new System.Drawing.Size(369, 420);
             this.ControlBox = false;
             this.Controls.Add(this.label3);
             this.Controls.Add(this.okButton);
@@ -363,5 +380,6 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.CheckBox checkBox_startup_startWithWindows;
+        private System.Windows.Forms.CheckBox checkBox_behavior_tryToPreventDuplicates;
     }
 }

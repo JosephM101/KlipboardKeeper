@@ -26,6 +26,7 @@ namespace KlipboardKeeper.Forms
             checkBox_uiOptions_keepHistoryWindowOnTop.Checked = settings.KeepHistoryWindowOnTop;
             checkBox_uiOptions_showCopyPreviewBalloon.Checked = settings.ShowCopyPreviewBalloon;
             checkBox_behavior_ignoreClipboardDataPresentAtStartup.Checked = settings.IgnoreClipboardDataPresentAtStartup;
+            checkBox_behavior_tryToPreventDuplicates.Checked = settings.PreventDuplicateItems;
             checkBox_memory_rememberClipboardHistory.Checked = settings.RememberClipboardHistory;
 
             checkBox_startup_startWithWindows.Checked = Reg.RegistryValueExists("Software\\Microsoft\\Windows\\CurrentVersion\\Run", "KlipboardKeeper", RegistryHive.CurrentUser);
@@ -54,6 +55,10 @@ namespace KlipboardKeeper.Forms
         private void checkBox_memory_rememberClipboardHistory_CheckedChanged(object sender, EventArgs e)
         {
             settings.RememberClipboardHistory = checkBox_memory_rememberClipboardHistory.Checked;
+        }
+        private void checkBox_behavior_tryToPreventDuplicates_CheckedChanged(object sender, EventArgs e)
+        {
+            settings.PreventDuplicateItems = checkBox_behavior_tryToPreventDuplicates.Checked;
         }
 
         private void checkBox_startup_startWithWindows_CheckedChanged(object sender, EventArgs e)

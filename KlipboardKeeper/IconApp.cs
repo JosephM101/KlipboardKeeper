@@ -8,6 +8,7 @@ using System.IO;
 using System.Media;
 using WK.Libraries.SharpClipboardNS;
 using static KlipboardKeeper.IconApp;
+using System.Runtime.InteropServices;
 
 namespace KlipboardKeeper
 {
@@ -34,7 +35,7 @@ namespace KlipboardKeeper
             clipboardManager = new SharpClipboard();
             clipboardManager.ClipboardChanged += Clipboard_ClipboardChanged;
 
-            source = new BindingSource(ClipboardHistory, null);
+            // source = new BindingSource(ClipboardHistory, null);
 
             // Initialize taskbar icon
             this.notifyIcon = new NotifyIcon();
@@ -64,6 +65,8 @@ namespace KlipboardKeeper
 
             clipboardHistoryWindow.VisibleChanged += ClipboardHistoryWindow_VisibleChanged;
             settingsWindow.VisibleChanged += SettingsWindow_VisibleChanged;
+
+            clipboardHistoryWindow.clipboardHistory = this.ClipboardHistory;
         }
 
         private void ClipboardHistoryWindow_VisibleChanged(object sender, EventArgs e)
@@ -114,7 +117,12 @@ namespace KlipboardKeeper
                 {
                     /// TODO: Pass history to window
                     clipboardHistoryWindow.TopMost = settings.KeepHistoryWindowOnTop;
-                    clipboardHistoryWindow.clipboardItems = this.ClipboardHistory;
+                    // clipboardHistoryWindow.clipboardItems = new System.ComponentModel.BindingList<ClipboardItem>();
+                    // foreach(ClipboardItem item in this.ClipboardHistory)
+                    // {
+                    //     clipboardHistoryWindow.clipboardItems.Add(item);
+                    // }
+                    // clipboardHistoryWindow.clipboardItems = this.ClipboardHistory;
                     clipboardHistoryWindow.ShowDialog(); // Show the dialog
                 }
             }
@@ -155,35 +163,56 @@ namespace KlipboardKeeper
         // Monitor clipboard events. It is rather imperative that we do this.
         private void Clipboard_ClipboardChanged(object sender, SharpClipboard.ClipboardChangedEventArgs e)
         {
+            Debug.WriteLine($"Got clipboard changed signal (ContentType=\"{e.ContentType.ToString()}\")");
+
             // I put a threshold here since SharpClipboard picks up the clipboard's current content as a change on startup. The solution is to essentially discard any clipboard data obtained within the first few seconds of the app starting.
             // Might consider making this a setting later
-            TimeSpan threshold = TimeSpan.FromSeconds(5);
+            TimeSpan threshold = TimeSpan.FromSeconds(4);
 
             DateTime clipboardChangeDetectedTime = DateTime.Now;
             TimeSpan difference = clipboardChangeDetectedTime - appStartTime;
             if (difference <= threshold && settings.IgnoreClipboardDataPresentAtStartup)
             {
                 // Ignore content
-                Debug.WriteLine("Ignoring current clipboard contents - within app startup time");
+                Debug.WriteLine("Ignoring current clipboard contents - detected within app startup threshold");
             }
             else
             {
-                if (e.ContentType == SharpClipboard.ContentTypes.Text)
+                if (e.SourceApplication.ID != Process.GetCurrentProcess().Id) // If the content copied wasn't from this program
                 {
-                    // string sourceApplicationName = e.SourceApplication.Name;
-                    string sourceApplicationTitle = e.SourceApplication.Title;
-                    string content = clipboardManager.ClipboardText;
-                    AppendToClipboardHistory(sourceApplicationTitle, content, DateTime.Now);
-
-                    if (settings.ShowCopyPreviewBalloon)
+                    if (e.ContentType == SharpClipboard.ContentTypes.Text)
                     {
-                        notifyIcon.BalloonTipTitle = $"Text copied from \"{sourceApplicationTitle}\"";
-                        notifyIcon.BalloonTipText = content;
-                        notifyIcon.ShowBalloonTip(5000);
+                        // string sourceApplicationName = e.SourceApplication.Name;
+                        string sourceApplicationTitle = e.SourceApplication.Title;
+                        string content = clipboardManager.ClipboardText;
+                        AppendToClipboardHistory(sourceApplicationTitle, content, DateTime.Now);
+
+                        if (settings.ShowCopyPreviewBalloon)
+                        {
+                            notifyIcon.BalloonTipTitle = $"Text copied from \"{sourceApplicationTitle}\"";
+                            notifyIcon.BalloonTipText = content;
+                            notifyIcon.ShowBalloonTip(5000);
+                        }
                     }
                 }
+                else
+                {
+                    Debug.WriteLine("Ignoring new clipboard data because it's from us...");
+                }
+            }
+
+            if (e.ContentType == SharpClipboard.ContentTypes.Other)
+            {
+                clearClipboardMenuItem.Enabled = false;
+                clearClipboardMenuItem.Text = "Clipboard is empty";
+            }
+            else
+            {
+                clearClipboardMenuItem.Enabled = true;
+                clearClipboardMenuItem.Text = "Clear clipboard";
             }
         }
+
 
         protected override void ExitThreadCore()
         {

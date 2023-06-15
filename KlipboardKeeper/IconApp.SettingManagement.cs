@@ -23,8 +23,13 @@ namespace KlipboardKeeper
         [Option(Alias = "behavior.ignoreClipboardDataPresentAtStartup", DefaultValue = true)]
         bool IgnoreClipboardDataPresentAtStartup { get; set; }
 
+        [Option(Alias = "behavior.preventDuplicateItems", DefaultValue = true)]
+        bool PreventDuplicateItems { get; set; }
+
         [Option(Alias = "memory.rememberClipboardHistory", DefaultValue = false)]
         bool RememberClipboardHistory { get; set; }
+
+        /// TODO: Add setting to allow specifying applications/windows to ignore clipboard events from
     }
 
     public partial class IconApp : ApplicationContext
