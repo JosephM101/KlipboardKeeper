@@ -46,14 +46,15 @@
             // toolStrip1
             // 
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSplitButton_done,
             this.toolStripButton_openInExternalEditor,
             this.toolStripButton_cancel});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(524, 25);
+            this.toolStrip1.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStrip1.Size = new System.Drawing.Size(699, 31);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -69,7 +70,7 @@
             this.toolStripSplitButton_done.Image = global::KlipboardKeeper.Properties.Resources.check_32;
             this.toolStripSplitButton_done.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton_done.Name = "toolStripSplitButton_done";
-            this.toolStripSplitButton_done.Size = new System.Drawing.Size(67, 22);
+            this.toolStripSplitButton_done.Size = new System.Drawing.Size(84, 28);
             this.toolStripSplitButton_done.Text = "Done";
             this.toolStripSplitButton_done.ButtonClick += new System.EventHandler(this.toolStripSplitButton_done_ButtonClick);
             // 
@@ -77,7 +78,7 @@
             // 
             this.saveChangesAndCopyToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveChangesAndCopyToolStripMenuItem.Name = "saveChangesAndCopyToolStripMenuItem";
-            this.saveChangesAndCopyToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
+            this.saveChangesAndCopyToolStripMenuItem.Size = new System.Drawing.Size(327, 26);
             this.saveChangesAndCopyToolStripMenuItem.Text = "Save changes && copy to clipboard";
             this.saveChangesAndCopyToolStripMenuItem.Click += new System.EventHandler(this.saveChangesAndCopyToolStripMenuItem_Click);
             // 
@@ -85,27 +86,27 @@
             // 
             this.justSaveChangesToolStripMenuItem.Image = global::KlipboardKeeper.Properties.Resources.save_32;
             this.justSaveChangesToolStripMenuItem.Name = "justSaveChangesToolStripMenuItem";
-            this.justSaveChangesToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
+            this.justSaveChangesToolStripMenuItem.Size = new System.Drawing.Size(327, 26);
             this.justSaveChangesToolStripMenuItem.Text = "Just save changes";
             this.justSaveChangesToolStripMenuItem.Click += new System.EventHandler(this.justSaveChangesToolStripMenuItem_Click);
             // 
             // justCopyToolStripMenuItem
             // 
             this.justCopyToolStripMenuItem.Name = "justCopyToolStripMenuItem";
-            this.justCopyToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
+            this.justCopyToolStripMenuItem.Size = new System.Drawing.Size(327, 26);
             this.justCopyToolStripMenuItem.Text = "Just copy to clipboard";
             this.justCopyToolStripMenuItem.Click += new System.EventHandler(this.justCopyToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(257, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(324, 6);
             // 
             // saveToFileToolStripMenuItem
             // 
             this.saveToFileToolStripMenuItem.Image = global::KlipboardKeeper.Properties.Resources.save_32;
             this.saveToFileToolStripMenuItem.Name = "saveToFileToolStripMenuItem";
-            this.saveToFileToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
+            this.saveToFileToolStripMenuItem.Size = new System.Drawing.Size(327, 26);
             this.saveToFileToolStripMenuItem.Text = "Save to file";
             this.saveToFileToolStripMenuItem.Click += new System.EventHandler(this.saveToFileToolStripMenuItem_Click);
             // 
@@ -114,7 +115,7 @@
             this.toolStripButton_openInExternalEditor.Image = global::KlipboardKeeper.Properties.Resources.Open_16x;
             this.toolStripButton_openInExternalEditor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton_openInExternalEditor.Name = "toolStripButton_openInExternalEditor";
-            this.toolStripButton_openInExternalEditor.Size = new System.Drawing.Size(168, 22);
+            this.toolStripButton_openInExternalEditor.Size = new System.Drawing.Size(211, 28);
             this.toolStripButton_openInExternalEditor.Text = "Open in System Text Editor";
             this.toolStripButton_openInExternalEditor.Click += new System.EventHandler(this.toolStripButton_OpenInExternalEditor_Click);
             // 
@@ -125,18 +126,19 @@
             this.toolStripButton_cancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton_cancel.Margin = new System.Windows.Forms.Padding(0, 1, 8, 2);
             this.toolStripButton_cancel.Name = "toolStripButton_cancel";
-            this.toolStripButton_cancel.Size = new System.Drawing.Size(63, 22);
+            this.toolStripButton_cancel.Size = new System.Drawing.Size(77, 28);
             this.toolStripButton_cancel.Text = "Cancel";
             this.toolStripButton_cancel.Click += new System.EventHandler(this.toolStripButton_Cancel_Click);
             // 
             // textBox
             // 
             this.textBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox.Location = new System.Drawing.Point(0, 25);
+            this.textBox.Location = new System.Drawing.Point(0, 31);
+            this.textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox.Multiline = true;
             this.textBox.Name = "textBox";
             this.textBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox.Size = new System.Drawing.Size(524, 259);
+            this.textBox.Size = new System.Drawing.Size(699, 319);
             this.textBox.TabIndex = 4;
             // 
             // saveFileDialog
@@ -145,12 +147,13 @@
             // 
             // EditItemWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 284);
+            this.ClientSize = new System.Drawing.Size(699, 350);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EditItemWindow";

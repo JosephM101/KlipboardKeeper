@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Config.Net;
+using KlipboardKeeper.Helpers;
 using Microsoft.Win32;
 
 namespace KlipboardKeeper.Forms

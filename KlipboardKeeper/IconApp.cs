@@ -9,6 +9,7 @@ using System.Media;
 using WK.Libraries.SharpClipboardNS;
 using static KlipboardKeeper.IconApp;
 using System.Runtime.InteropServices;
+using KlipboardKeeper.Helpers;
 
 namespace KlipboardKeeper
 {

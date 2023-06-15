@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KlipboardKeeper.Helpers;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ namespace KlipboardKeeper
 {
     public partial class IconApp : ApplicationContext
     {
-        private readonly string PersistentHistoryFileName = "KlipboardKeeper.history";
+        private readonly string PersistentHistoryFileName = ConfigFileHelper.GetConfigPath("KlipboardKeeper.history");
         private readonly object clipboardHistoryListLock = new object();
         public BindingList<ClipboardItem> ClipboardHistory = new BindingList<ClipboardItem>();
         public BindingSource source;

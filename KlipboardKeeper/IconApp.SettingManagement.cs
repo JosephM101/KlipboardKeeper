@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Windows.Forms;
 using static KlipboardKeeper.IconApp;
+using KlipboardKeeper.Helpers;
 
 namespace KlipboardKeeper
 {
@@ -38,7 +39,7 @@ namespace KlipboardKeeper
     public partial class IconApp : ApplicationContext
     {
         IAppSettings settings;
-        public static readonly string SettingsFileName = "KlipboardKeeper.json";
+        public static readonly string SettingsFileName = ConfigFileHelper.GetConfigPath("KlipboardKeeper.json");
 
         // Initialize settings
         public void InitializeSettings()

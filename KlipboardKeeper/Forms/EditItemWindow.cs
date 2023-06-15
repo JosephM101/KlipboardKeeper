@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Threading;
 using static KlipboardKeeper.IconApp;
@@ -24,10 +25,11 @@ namespace KlipboardKeeper.Forms
             this._ShowFirstStartDialog = showFirstStartDialog;
         }
 
-        private void EditItemWindow_Shown(object sender, EventArgs e)
+        private async void EditItemWindow_Shown(object sender, EventArgs e)
         {
             if (_ShowFirstStartDialog)
             {
+                await Task.Delay(400); // Allow enough time for the edit window to finish drawing.
                 new KlipboardKeeper_Editor_WelcomeMessage(this.TopMost).ShowDialog();
             }
         }
