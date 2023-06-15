@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace KlipboardKeeper
@@ -17,7 +13,9 @@ namespace KlipboardKeeper
             if (Process.GetProcessesByName(Path.GetFileNameWithoutExtension(System.Reflection.Assembly.GetEntryAssembly().Location)).Count() > 1)
             {
                 MessageBox.Show(
-                    $"{AppName} is already running! \n\nTo access captured items from your clipboard, click on the 'clipboard' icon in the taskbar.",
+                    $"{AppName} is already running! \n" +
+                    $"\n" +
+                    $"To access your clipboard history, click on the 'clipboard' icon in the taskbar. If you don't see it, it may be hiding in your taskbar's overflow menu.",
                     AppName,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error

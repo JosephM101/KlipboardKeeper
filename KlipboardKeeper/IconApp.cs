@@ -63,15 +63,9 @@ namespace KlipboardKeeper
                 GetHistoryFromFile(); // Load saved history
             }
 
-            clipboardHistoryWindow.VisibleChanged += ClipboardHistoryWindow_VisibleChanged;
             settingsWindow.VisibleChanged += SettingsWindow_VisibleChanged;
 
             clipboardHistoryWindow.clipboardHistory = this.ClipboardHistory;
-        }
-
-        private void ClipboardHistoryWindow_VisibleChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void SettingsWindow_VisibleChanged(object sender, EventArgs e)
