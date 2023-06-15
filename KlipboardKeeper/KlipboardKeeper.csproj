@@ -264,7 +264,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="IconApp.FlashWindow.cs.a" />
     <Compile Include="Models\ClipboardItem.cs" />
     <Compile Include="Forms\ClipboardHistoryWindow.cs">
       <SubType>Form</SubType>
