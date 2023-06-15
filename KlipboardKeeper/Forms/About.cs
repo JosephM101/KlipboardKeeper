@@ -19,6 +19,12 @@ namespace KlipboardKeeper.Forms
             InitializeComponent();
         }
 
+        public About(bool TopMost)
+        {
+            InitializeComponent();
+            this.TopMost = TopMost;
+        }
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://github.com/Willy-Kimura/SharpClipboard");
@@ -38,7 +44,6 @@ namespace KlipboardKeeper.Forms
         {
             Process.Start("https://www.newtonsoft.com/json");
         }
-
 
         public string AssemblyTitle
         {
@@ -121,7 +126,12 @@ namespace KlipboardKeeper.Forms
         {
             AssemblyTitleLabel.Text = AssemblyTitle;
             VersionLabel.Text = AssemblyVersion;
-            label6.Text = AssemblyCopyright;
+            AssemblyCopyrightLabel.Text = AssemblyCopyright;
+        }
+
+        private void button_close_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

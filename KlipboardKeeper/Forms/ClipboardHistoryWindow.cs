@@ -213,7 +213,7 @@ namespace KlipboardKeeper.Forms
 
         private void menuItem_about_Click(object sender, EventArgs e)
         {
-            new About().ShowDialog();
+            new About(this.TopMost).ShowDialog();
         }
     }
 }
