@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KlipboardKeeper.Properties {
+namespace KlipboardKeeper.Images {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace KlipboardKeeper.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class Icons_Thin {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal Icons_Thin() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace KlipboardKeeper.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("KlipboardKeeper.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("KlipboardKeeper.Images.Icons_Thin", typeof(Icons_Thin).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,9 +63,9 @@ namespace KlipboardKeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap check_16 {
+        internal static System.Drawing.Bitmap clipboard_32 {
             get {
-                object obj = ResourceManager.GetObject("check_16", resourceCulture);
+                object obj = ResourceManager.GetObject("clipboard_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,29 @@ namespace KlipboardKeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap check_32 {
+        internal static System.Drawing.Bitmap clipboard_64 {
             get {
-                object obj = ResourceManager.GetObject("check_32", resourceCulture);
+                object obj = ResourceManager.GetObject("clipboard_64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] clipboard_svg {
+            get {
+                object obj = ResourceManager.GetObject("clipboard_svg", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap copy_32 {
+            get {
+                object obj = ResourceManager.GetObject("copy_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +103,29 @@ namespace KlipboardKeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap check_64 {
+        internal static System.Drawing.Bitmap copy_64 {
             get {
-                object obj = ResourceManager.GetObject("check_64", resourceCulture);
+                object obj = ResourceManager.GetObject("copy_64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] copy_svg {
+            get {
+                object obj = ResourceManager.GetObject("copy_svg", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_2_32 {
+            get {
+                object obj = ResourceManager.GetObject("edit_2_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +133,29 @@ namespace KlipboardKeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap check_circle_16 {
+        internal static System.Drawing.Bitmap edit_2_64 {
             get {
-                object obj = ResourceManager.GetObject("check_circle_16", resourceCulture);
+                object obj = ResourceManager.GetObject("edit_2_64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] edit_2_svg {
+            get {
+                object obj = ResourceManager.GetObject("edit_2_svg", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_3_32 {
+            get {
+                object obj = ResourceManager.GetObject("edit_3_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +163,29 @@ namespace KlipboardKeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap check_circle_32 {
+        internal static System.Drawing.Bitmap edit_3_64 {
             get {
-                object obj = ResourceManager.GetObject("check_circle_32", resourceCulture);
+                object obj = ResourceManager.GetObject("edit_3_64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] edit_3_svg {
+            get {
+                object obj = ResourceManager.GetObject("edit_3_svg", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_32 {
+            get {
+                object obj = ResourceManager.GetObject("edit_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +193,29 @@ namespace KlipboardKeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap check_circle_64 {
+        internal static System.Drawing.Bitmap edit_64 {
             get {
-                object obj = ResourceManager.GetObject("check_circle_64", resourceCulture);
+                object obj = ResourceManager.GetObject("edit_64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] edit_svg {
+            get {
+                object obj = ResourceManager.GetObject("edit_svg", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settings_128 {
+            get {
+                object obj = ResourceManager.GetObject("settings_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +223,9 @@ namespace KlipboardKeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap check_square_16 {
+        internal static System.Drawing.Bitmap settings_16 {
             get {
-                object obj = ResourceManager.GetObject("check_square_16", resourceCulture);
+                object obj = ResourceManager.GetObject("settings_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +233,9 @@ namespace KlipboardKeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap check_square_32 {
+        internal static System.Drawing.Bitmap settings_256 {
             get {
-                object obj = ResourceManager.GetObject("check_square_32", resourceCulture);
+                object obj = ResourceManager.GetObject("settings_256", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,29 +243,9 @@ namespace KlipboardKeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap check_square_64 {
+        internal static System.Drawing.Bitmap settings_32 {
             get {
-                object obj = ResourceManager.GetObject("check_square_64", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon clipboard {
-            get {
-                object obj = ResourceManager.GetObject("clipboard", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Copy_32x {
-            get {
-                object obj = ResourceManager.GetObject("Copy_32x", resourceCulture);
+                object obj = ResourceManager.GetObject("settings_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,39 +253,29 @@ namespace KlipboardKeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DeleteListItem_32x {
+        internal static System.Drawing.Bitmap settings_64 {
             get {
-                object obj = ResourceManager.GetObject("DeleteListItem_32x", resourceCulture);
+                object obj = ResourceManager.GetObject("settings_64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static System.Drawing.Icon edit {
+        internal static byte[] settings_svg {
             get {
-                object obj = ResourceManager.GetObject("edit", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                object obj = ResourceManager.GetObject("settings_svg", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Edit_grey_32x {
+        internal static System.Drawing.Bitmap trash_2_32 {
             get {
-                object obj = ResourceManager.GetObject("Edit_grey_32x", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Open_16x {
-            get {
-                object obj = ResourceManager.GetObject("Open_16x", resourceCulture);
+                object obj = ResourceManager.GetObject("trash_2_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +283,29 @@ namespace KlipboardKeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap save_16 {
+        internal static System.Drawing.Bitmap trash_2_64 {
             get {
-                object obj = ResourceManager.GetObject("save_16", resourceCulture);
+                object obj = ResourceManager.GetObject("trash_2_64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] trash_2_svg {
+            get {
+                object obj = ResourceManager.GetObject("trash_2_svg", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trash_32 {
+            get {
+                object obj = ResourceManager.GetObject("trash_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,50 +313,20 @@ namespace KlipboardKeeper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap save_32 {
+        internal static System.Drawing.Bitmap trash_64 {
             get {
-                object obj = ResourceManager.GetObject("save_32", resourceCulture);
+                object obj = ResourceManager.GetObject("trash_64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap save_64 {
+        internal static byte[] trash_svg {
             get {
-                object obj = ResourceManager.GetObject("save_64", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap x_16 {
-            get {
-                object obj = ResourceManager.GetObject("x_16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap x_32 {
-            get {
-                object obj = ResourceManager.GetObject("x_32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap x_64 {
-            get {
-                object obj = ResourceManager.GetObject("x_64", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("trash_svg", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }
