@@ -76,5 +76,18 @@ namespace KlipboardKeeper.Forms
                 }
             }
         }
+
+        private void button_resetDialogFlags_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Any one-time dialogs previously shown will appear again. This includes first-start messages.\n\nContinue?",
+                                                  "Reset dialog flags",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                settings.EntryEditor_FirstStartMessageShown = false;
+                MessageBox.Show("Dialog flags reset.", "KlipboardKeeper Settings");
+            }
+        }
     }
 }
