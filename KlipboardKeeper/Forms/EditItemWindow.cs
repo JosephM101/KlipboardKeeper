@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
+using System.Windows.Threading;
 using static KlipboardKeeper.IconApp;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -13,10 +15,21 @@ namespace KlipboardKeeper.Forms
         bool skipExitMessage = false;
         public ClipboardItem clipboardItem;
 
-        public EditItemWindow(ClipboardItem clipboardItem)
+        private bool _ShowFirstStartDialog = false;
+
+        public EditItemWindow(ClipboardItem clipboardItem, bool showFirstStartDialog)
         {
             InitializeComponent();
             this.clipboardItem = clipboardItem;
+            this._ShowFirstStartDialog = showFirstStartDialog;
+        }
+
+        private void EditItemWindow_Shown(object sender, EventArgs e)
+        {
+            if (_ShowFirstStartDialog)
+            {
+                new KlipboardKeeper_Editor_WelcomeMessage(this.TopMost).ShowDialog();
+            }
         }
 
         private void EditItemWindow_Load(object sender, EventArgs e)

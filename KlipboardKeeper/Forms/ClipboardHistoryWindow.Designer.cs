@@ -38,7 +38,7 @@
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItem_deselectAll = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
-            this.menuItem4 = new System.Windows.Forms.MenuItem();
+            this.menuItem_about = new System.Windows.Forms.MenuItem();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.toolStripButton_editSelectedItem = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton_deleteSelectedItem = new System.Windows.Forms.ToolStripButton();
@@ -108,13 +108,14 @@
             // 
             this.menuItem2.Index = 2;
             this.menuItem2.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem4});
+            this.menuItem_about});
             this.menuItem2.Text = "Help";
             // 
-            // menuItem4
+            // menuItem_about
             // 
-            this.menuItem4.Index = 0;
-            this.menuItem4.Text = "About";
+            this.menuItem_about.Index = 0;
+            this.menuItem_about.Text = "About";
+            this.menuItem_about.Click += new System.EventHandler(this.menuItem_about_Click);
             // 
             // dataGridView
             // 
@@ -279,7 +280,7 @@
         private System.Windows.Forms.MainMenu mainMenu1;
         private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem menuItem2;
-        private System.Windows.Forms.MenuItem menuItem4;
+        private System.Windows.Forms.MenuItem menuItem_about;
         private System.Windows.Forms.MenuItem menuItem_closeWindow;
         public System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.ToolStripContainer toolStripContainer;

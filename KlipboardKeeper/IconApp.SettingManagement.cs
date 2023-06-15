@@ -11,8 +11,11 @@ namespace KlipboardKeeper
         [Option(Alias = "maxHistoryLength", DefaultValue = 10)]
         int MaxHistoryLength { get; set; }
 
-        [Option(Alias = "firstStart", DefaultValue = true)]
+        [Option(Alias = "flags.firstStart", DefaultValue = true)]
         bool IsFirstStart { get; set; }
+
+        [Option(Alias = "flags.entryEditorFirstStartMessageShown", DefaultValue = false)]
+        bool EntryEditor_FirstStartMessageShown { get; set; }
 
         [Option(Alias = "ui.keepOnTop", DefaultValue = true)]
         bool KeepHistoryWindowOnTop { get; set; }

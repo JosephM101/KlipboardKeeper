@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime;
 using System.Windows.Forms;
 using static KlipboardKeeper.IconApp;
 
@@ -12,6 +13,7 @@ namespace KlipboardKeeper.Forms
     public partial class ClipboardHistoryWindow : Form
     {
         public BindingList<ClipboardItem> clipboardHistory { get; set; }
+        public IAppSettings settings { get; set; }
 
         public ClipboardHistoryWindow()
         {
@@ -130,7 +132,8 @@ namespace KlipboardKeeper.Forms
             if (dataGridView.SelectedRows.Count == 1)
             {
                 ClipboardItem selectedItem = GetSelectedItemFromDataGridView();
-                EditItemWindow editItemWindow = new EditItemWindow(selectedItem);
+                EditItemWindow editItemWindow = new EditItemWindow(selectedItem, !settings.EntryEditor_FirstStartMessageShown);
+                settings.EntryEditor_FirstStartMessageShown = true;
                 editItemWindow.TopMost = this.TopMost;
                 editItemWindow.ShowDialog();
                 if (editItemWindow.saved)
@@ -206,6 +209,11 @@ namespace KlipboardKeeper.Forms
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             OpenEditWindow();
+        }
+
+        private void menuItem_about_Click(object sender, EventArgs e)
+        {
+            new About().ShowDialog();
         }
     }
 }

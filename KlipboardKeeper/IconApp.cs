@@ -66,6 +66,7 @@ namespace KlipboardKeeper
             settingsWindow.VisibleChanged += SettingsWindow_VisibleChanged;
 
             clipboardHistoryWindow.clipboardHistory = this.ClipboardHistory;
+            clipboardHistoryWindow.settings = this.settings;
         }
 
         private void SettingsWindow_VisibleChanged(object sender, EventArgs e)

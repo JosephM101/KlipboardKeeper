@@ -158,6 +158,7 @@
             this.Text = "Edit Item";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditItemWindow_FormClosing);
             this.Load += new System.EventHandler(this.EditItemWindow_Load);
+            this.Shown += new System.EventHandler(this.EditItemWindow_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EditItemWindow_KeyDown);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
