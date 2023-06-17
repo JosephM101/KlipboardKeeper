@@ -55,9 +55,51 @@ namespace KlipboardKeeper.Helpers
         }
         */
 
+        // public static string GetConfigPath(string filename)
+        // {
+        //     // Check if the application is running as a portable version
+        //     if (IsPortableVersion())
+        //     {
+        //         // If the application is running as a portable version, check if it has write access to the current directory
+        //         if (HasWriteAccessToFolder(Directory.GetCurrentDirectory()))
+        //         {
+        //             Debug.WriteLine($"{DebugPrefix}Using local directory (portable mode)");
+        //             return Path.Combine(Directory.GetCurrentDirectory(), filename);
+        //         }
+        //         else
+        //         {
+        //             // If the application does not have write access to the current directory, create a log file on the user's desktop
+        //             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        //             string logFilePath = Path.Combine(desktopPath, "KlipboardKeeper-log.txt");
+        //             File.WriteAllText(logFilePath, "Error: KlipboardKeeper portable version cannot write to the current directory.");
+        // 
+        //             // Terminate the application
+        //             Environment.Exit(1);
+        //             return null;
+        //         }
+        //     }
+        //     else
+        //     {
+        //         if (IsRunningFromProgramFiles())
+        //         {
+        //             Debug.WriteLine("Detected installation, using AppData folder for configuration");
+        //             // If the application is not running as a portable version, use the user's AppData folder
+        //             string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        //             string appFolder = Path.Combine(appDataPath, "KlipboardKeeper");
+        //             Directory.CreateDirectory(appFolder);
+        //             Debug.WriteLine($"{DebugPrefix}Using config directory \"{appFolder}\"");
+        //             return Path.Combine(appFolder, filename);
+        //         }
+        //         else
+        //         {
+        //             Debug.WriteLine($"{DebugPrefix}Using local directory");
+        //             return Path.Combine(Directory.GetCurrentDirectory(), filename);
+        //         }
+        //     }
+        // }
+
         public static string GetConfigPath(string filename)
         {
-            // Check if the application is running as a portable version
             if (IsPortableVersion())
             {
                 // If the application is running as a portable version, check if it has write access to the current directory
@@ -80,16 +122,11 @@ namespace KlipboardKeeper.Helpers
             }
             else
             {
-                if (IsRunningFromProgramFiles())
-                {
-                    Debug.WriteLine("Detected installation, using AppData folder for configuration");
-                    // If the application is not running as a portable version, use the user's AppData folder
-                    string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                    string appFolder = Path.Combine(appDataPath, "KlipboardKeeper");
-                    Directory.CreateDirectory(appFolder);
-                    Debug.WriteLine($"{DebugPrefix}Using config directory \"{appFolder}\"");
-                    return Path.Combine(appFolder, filename);
-                }
+                string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                string appFolder = Path.Combine(appDataPath, "KlipboardKeeper");
+                Directory.CreateDirectory(appFolder);
+                Debug.WriteLine($"{DebugPrefix}Using config directory \"{appFolder}\"");
+                return Path.Combine(appFolder, filename);
             }
         }
 
@@ -153,6 +190,31 @@ namespace KlipboardKeeper.Helpers
                     key.DeleteValue(valueName, false);
                 }
             }
+        }
+    }
+
+    public static class IOHelpers
+    {
+        public static bool TryDeleteIfExists(string file_to_delete, out Exception exception)
+        {
+            exception = null;
+            if (File.Exists(file_to_delete))
+            {
+                try
+                {
+                    File.Delete(file_to_delete);
+                }
+                catch (Exception ex)
+                {
+                    exception = ex;
+                }
+            }
+
+            if (File.Exists(file_to_delete))
+            {
+                return false;
+            }
+            else return true;
         }
     }
 

@@ -139,6 +139,11 @@ namespace KlipboardKeeper
                         {
                             DeleteHistoryFileIfExists();
                         }
+
+                        if (settingsWindow.close_reason == "RESET_ALL")
+                        {
+                            ResetAllSettings();
+                        }
                     }
                 }
             }
@@ -202,6 +207,21 @@ namespace KlipboardKeeper
             }
         }
 
+        private void ResetAllSettings()
+        {
+            Exception result1_exception, result2_exception;
+            bool result1 = IOHelpers.TryDeleteIfExists(SettingsFileName, out result1_exception);
+            bool result2 = IOHelpers.TryDeleteIfExists(PersistentHistoryFileName, out result2_exception);
+            if (result1 && result2)
+            {
+                MessageBox.Show($"All data cleared. {AppName} will now close.", "Settings cleared");
+            }
+            else
+            {
+                MessageBox.Show("Error while resetting: A file couldn't be deleted. It may be in use (it's not supposed to be).", "Couldn't reset.");
+            }
+            Application.Exit();
+        }
 
         protected override void ExitThreadCore()
         {

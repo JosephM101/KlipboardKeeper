@@ -39,7 +39,7 @@ namespace KlipboardKeeper
     public partial class IconApp : ApplicationContext
     {
         IAppSettings settings;
-        public static readonly string SettingsFileName = ConfigFileHelper.GetConfigPath("KlipboardKeeper.json");
+        public static readonly string SettingsFileName = ConfigFileHelper.GetConfigPath(Common.ConfigFileName);
 
         // Initialize settings
         public void InitializeSettings()

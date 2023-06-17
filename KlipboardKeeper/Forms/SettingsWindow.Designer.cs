@@ -48,12 +48,13 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.checkBox_startup_startWithWindows = new System.Windows.Forms.CheckBox();
-            this.okButton = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.button_resetDialogFlags = new System.Windows.Forms.Button();
+            this.okButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -308,6 +309,38 @@
             this.checkBox_startup_startWithWindows.UseVisualStyleBackColor = true;
             this.checkBox_startup_startWithWindows.CheckedChanged += new System.EventHandler(this.checkBox_startup_startWithWindows_CheckedChanged);
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.flowLayoutPanel5);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox5.Location = new System.Drawing.Point(3, 306);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(339, 54);
+            this.groupBox5.TabIndex = 9;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Miscellaneous";
+            // 
+            // flowLayoutPanel5
+            // 
+            this.flowLayoutPanel5.Controls.Add(this.button_resetDialogFlags);
+            this.flowLayoutPanel5.Controls.Add(this.button1);
+            this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 16);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(333, 35);
+            this.flowLayoutPanel5.TabIndex = 0;
+            // 
+            // button_resetDialogFlags
+            // 
+            this.button_resetDialogFlags.AutoSize = true;
+            this.button_resetDialogFlags.Location = new System.Drawing.Point(3, 3);
+            this.button_resetDialogFlags.Name = "button_resetDialogFlags";
+            this.button_resetDialogFlags.Size = new System.Drawing.Size(106, 23);
+            this.button_resetDialogFlags.TabIndex = 0;
+            this.button_resetDialogFlags.Text = "Reset Dialog Flags";
+            this.button_resetDialogFlags.UseVisualStyleBackColor = true;
+            this.button_resetDialogFlags.Click += new System.EventHandler(this.button_resetDialogFlags_Click);
+            // 
             // okButton
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -331,36 +364,17 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "NOTE: Some settings may not take effect until you restart KlipboardKeeper.";
             // 
-            // groupBox5
+            // button1
             // 
-            this.groupBox5.Controls.Add(this.flowLayoutPanel5);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox5.Location = new System.Drawing.Point(3, 306);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(339, 54);
-            this.groupBox5.TabIndex = 9;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Miscellaneous";
-            // 
-            // flowLayoutPanel5
-            // 
-            this.flowLayoutPanel5.Controls.Add(this.button_resetDialogFlags);
-            this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 16);
-            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(333, 35);
-            this.flowLayoutPanel5.TabIndex = 0;
-            // 
-            // button_resetDialogFlags
-            // 
-            this.button_resetDialogFlags.AutoSize = true;
-            this.button_resetDialogFlags.Location = new System.Drawing.Point(3, 3);
-            this.button_resetDialogFlags.Name = "button_resetDialogFlags";
-            this.button_resetDialogFlags.Size = new System.Drawing.Size(106, 23);
-            this.button_resetDialogFlags.TabIndex = 0;
-            this.button_resetDialogFlags.Text = "Reset Dialog Flags";
-            this.button_resetDialogFlags.UseVisualStyleBackColor = true;
-            this.button_resetDialogFlags.Click += new System.EventHandler(this.button_resetDialogFlags_Click);
+            this.button1.AutoSize = true;
+            this.button1.ForeColor = System.Drawing.Color.Red;
+            this.button1.Location = new System.Drawing.Point(115, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(98, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Reset Everything";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // SettingsWindow
             // 
@@ -429,5 +443,6 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private System.Windows.Forms.Button button_resetDialogFlags;
+        private System.Windows.Forms.Button button1;
     }
 }

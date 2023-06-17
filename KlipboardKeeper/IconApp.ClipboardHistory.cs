@@ -1,20 +1,17 @@
 ﻿using KlipboardKeeper.Helpers;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace KlipboardKeeper
 {
     public partial class IconApp : ApplicationContext
     {
-        private readonly string PersistentHistoryFileName = ConfigFileHelper.GetConfigPath("KlipboardKeeper.history");
+        private readonly string PersistentHistoryFileName = ConfigFileHelper.GetConfigPath(Common.ClipboardHistoryFilename);
         private readonly object clipboardHistoryListLock = new object();
         public BindingList<ClipboardItem> ClipboardHistory = new BindingList<ClipboardItem>();
         public BindingSource source;

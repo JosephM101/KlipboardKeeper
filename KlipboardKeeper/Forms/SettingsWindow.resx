@@ -120,12 +120,12 @@
   <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="checkBox_behavior_ignoreClipboardDataPresentAtStartup.ToolTip" xml:space="preserve">
-    <value>Within the first couple of seconds after starting, KlipboardKeeper can detect content present in the clipboard. When this setting is enabled, KlipboardKeeper will save the detected content in its history.</value>
-  </data>
   <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="checkBox_behavior_ignoreClipboardDataPresentAtStartup.ToolTip" xml:space="preserve">
+    <value>Within the first couple of seconds after starting, KlipboardKeeper can detect content present in the clipboard. When this setting is enabled, KlipboardKeeper will save the detected content in its history.</value>
+  </data>
   <data name="checkBox_memory_rememberClipboardHistory.ToolTip" xml:space="preserve">
     <value>When checked, KlipboardKeeper will remember the clipboard history instead of discarding it when the app is closed. 
 Note that this will result in gaps during periods when KlipboardKeeper isn't running.

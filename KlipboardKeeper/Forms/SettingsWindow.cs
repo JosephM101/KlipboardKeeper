@@ -1,6 +1,6 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
-using Config.Net;
 using KlipboardKeeper.Helpers;
 using Microsoft.Win32;
 
@@ -9,6 +9,7 @@ namespace KlipboardKeeper.Forms
     public partial class SettingsWindow : Form
     {
         public IAppSettings settings;
+        public string close_reason = "";
 
         public SettingsWindow()
         {
@@ -88,6 +89,24 @@ namespace KlipboardKeeper.Forms
             {
                 settings.EntryEditor_FirstStartMessageShown = false;
                 MessageBox.Show("Dialog flags reset.", "KlipboardKeeper Settings");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to reset EVERYTHING?\n" +
+                                                  "This clears your settings as well as any saved data. This cannot be undone.\n" +
+                                                  "Once everything is reset, KlipboardKeeper will close.\n" +
+                                                  "\n" +
+                                                  "Continue?",
+                                                  "Reset everything?",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                close_reason = "RESET_ALL";
+                this.DialogResult = DialogResult.OK;
+                Close();
             }
         }
     }
